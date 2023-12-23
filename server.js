@@ -6,7 +6,7 @@ const fs = require('fs');
 const app = express();
 const port = 5000;
 
-const documentRoot = 'C:\\Users\\developer\\Desktop\\pdfs';
+const documentRoot = 'D:\\pdfs';
 const categories = ['category1', 'category2', 'category3'];
 
 app.use(cors({
