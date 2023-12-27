@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { eventoService } from '../services/evento.service';
+
+
 
 const LoadFiles = (props) => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -17,16 +20,48 @@ const LoadFiles = (props) => {
     }
   }, [selectedCategory, props]);
 
+
+
+
   const fetchDocuments = async (category) => {
     try {
-      const response = await fetch(`http://localhost:5000/documents?category=${category}`);
 
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
-      }
 
-      const files = await response.json();
-      setDocuments(files);
+
+      let _body='';
+      let _result ='';
+
+			await eventoService.obtenerFiles(_body, category).then(
+
+				(res) => {
+
+          console.log('--------------');
+          console.log(res[0]);
+          console.log('--------------');
+          
+          
+					setDocuments(res[0]);
+					_result = res[0];
+				},
+				(error) => {
+					console.log(error);
+				}
+			);
+      
+      
+
+      // const response = await fetch(`http://localhost:5000/api/gescon/documents?category=${category}`);
+
+      // if (!response.ok) {
+      //   throw new Error(`Network response was not ok: ${response.statusText}`);
+      // }
+
+
+
+
+
+      // const files = await response.json();
+      // setDocuments(files);
     } catch (error) {
       console.error('Error fetching documents:', error.message);
     }
@@ -35,7 +70,7 @@ const LoadFiles = (props) => {
   const handleDocumentClick = (document) => {
     const encodedCategory = encodeURIComponent(selectedCategory);
     const encodedDocument = encodeURIComponent(document);
-    window.open(`http://localhost:5000/documents?category=${encodedCategory}&document=${encodedDocument}`, '_blank');
+    window.open(`http://localhost:5000/api/gescon/documents?category=${encodedCategory}&document=${encodedDocument}`, '_blank');
   };
 
   return (
