@@ -1,33 +1,33 @@
-import { Try } from '@mui/icons-material';
+import { store } from '../store';
 import { authHeader, handleResponse } from '../helpers';
 import Fetch from '../helpers/Fetch';
 
-export const eventoService = {
-  obtenerUsuario,
+export const userService = {
+  login,
+  logout,
 };
 
-// SERVICIOS SIN AUTORIZACION
-
-
-function obtenerUsuario(dataJson) {
-  const options = { headers: authHeader(), body: JSON.stringify(dataJson) };
-  const params = {};
-
-  const url = `/api/evento/sgm_usuarios`;
-  return Fetch.post(url, params, options).then((res) =>
-    handleResponse(res, false)
-  );
+function login() {
+  // tu trabajo
 }
 
-function obtenerToken(dataJson) {
-  const options = { headers: authHeader(), body: JSON.stringify(dataJson) };
-  const params = {};
+function logout() {
+  const { accessToken } = store.getState();
+  const requestOptions = {
+    method: 'POST',
+    credentials: 'include',
+    headers: authHeader(),
+    body: JSON.stringify(accessToken?.token),
+  };
 
-  const url = `/api/evento/auth`;
-  return Fetch.post(url, params, options).then((res) =>
-    handleResponse(res, false)
-  );
+  let resStatus = 0;
+  // if (accessToken?.token) {
+  //   return fetch(`${SERVICE_URL}/users/revoke-token`, requestOptions)
+  //     .then(() => {
+  //       store.dispatch({ type: 'LOGOUT', payload: false });
+  //     })
+  //     .catch((error) => {
+  //       store.dispatch({ type: 'LOGOUT', payload: false });
+  //     });
+  // }
 }
-
-
-

@@ -1,6 +1,6 @@
-import { store } from '../store';
+import { store } from '../store.js';
 
-const _apiHost = `${SERVICE_URL}`;
+const _apiHost = JSON.stringify('https://localhost');
 
 async function request(url, params = {}, method = 'GET', options) {
   const { currentPortalID = 0, activeTabID = 0 } = store.getState();

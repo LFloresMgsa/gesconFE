@@ -198,16 +198,16 @@ const reducer = (state = initialState, action) => {
 };
 
 // export const store = createStore(reducer, initialState);
-const env = BUILD_ENV;
-const composeEnhancer =
-  (env === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
+//const env = BUILD_ENV;
+// const composeEnhancer =
+//   (env === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+//   compose;
 
 export const store = createStore(
   reducer,
   initialState,
-  composeEnhancer(
-    applyMiddleware(createStateSyncMiddleware(reduxStateSyncConfig))
-  )
+  // composeEnhancer(
+  //   applyMiddleware(createStateSyncMiddleware(reduxStateSyncConfig))
+  // )
 );
 initMessageListener(store);

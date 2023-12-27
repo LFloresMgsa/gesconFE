@@ -1,4 +1,4 @@
-import { userService } from '../services';
+import { userService } from '../services/user.service';
 import { startNewTimerForRefreshedToken } from '.';
 
 export function handleResponse(response, resetToken = true) {
@@ -22,7 +22,7 @@ export function handleResponse(response, resetToken = true) {
         **************************************************************/
         // auto logout if 401 was return
         userService.logout().then((re) => {
-          history.push('/login');
+        //  history.push('/login');
           // location.reload(); // important to reinstate all the default values. THIS IS A MUST!
         });
       } else if (response.status === 403) {
