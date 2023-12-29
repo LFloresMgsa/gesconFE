@@ -6,6 +6,7 @@ import Inicio from './pages/Inicio';
 import { Categorias } from './pages/Categorias';
 import Sidebar from './components/Sidebar';
 import Login from './pages/Login';
+import Logout  from './pages/Logout';
 
 // Configura la ubicación del worker de PDF.js
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
@@ -24,6 +25,7 @@ const App = () => {
             <Route path='/categoria2' element={<Categorias pCategory="category2"/>} />
             <Route path='/categoria3' element={<Categorias pCategory="category3"/>} />
             <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
           </Routes>
         </div>
       </div>

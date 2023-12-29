@@ -5,80 +5,92 @@ import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
-  <br></br>,
   {
     title: 'Inicio',
     path: '/inicio',
     icon: <AiIcons.AiFillHome />,
-    className: 'MenuOption'
+    cName:'',
+    className: 'MenuOption',
+    iconClosed: '',
+    iconOpened: '',
+    role:' Root, Admin, User, All',
+    tabOrder:1,
+    subNav: []
   },
   
   {
     title: 'Categorias',
-    //path: '/reports',
+    path: '',
     icon: <IoIcons.IoIosPaper />,
+    cName:'',
+    className: '',
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-
+    role:' Root, Admin, User, All',
+    tabOrder:2,
     subNav: [
       {
-        title: 'Category1',
+        title: 'General',
         path: '/categoria1',
         icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
+        cName: 'sub-nav',
+        className: '',
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
+        role:' Root, Admin, User, All',
+        tabOrder:3,
+        subNav: []
       },
       {
-        title: 'Category2',
+        title: 'Sistemas',
         path: '/categoria2',
         icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
+        cName: 'sub-nav',
+        className: '',
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
+        role:' Root, Admin',
+        tabOrder:4,
+        subNav: []
       },
-      {
-        title: 'Category3',
-        path: '/categoria3',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Login',
-        path: '/login',
-        icon: <IoIcons.IoIosPaper />
-      }      
     ]
   },
-  /*{
-    title: 'Products',
-    path: '/products',
-    icon: <FaIcons.FaCartPlus />
-  },
-  {
-    title: 'Team',
-    path: '/team',
-    icon: <IoIcons.IoMdPeople />
-  },
-  {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Message 1',
-        path: '/messages/message1',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Message 2',
-        path: '/messages/message2',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },*/
   {
     title: 'Soporte',
     path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />
-  }
+    icon: <IoIcons.IoMdHelpCircle />,
+    cName: '',
+    className: '',
+    iconClosed: '',
+    iconOpened: '',
+    role:' Root, Admin, User, All',
+    tabOrder:5,
+    subNav: []
+  },
+  {
+    title: 'Login',
+    path: '/login',
+    icon: <IoIcons.IoIosPaper />,
+    cName: '',
+    className: '',
+    iconClosed: '',
+    iconOpened: '',
+    role:' Root, Admin, User, All',
+    tabOrder:6,
+    subNav: []
+  }     , 
+  {
+    title: 'Logout',
+    path: '/logout',
+    icon: <IoIcons.IoIosPaper />,
+    cName: '',
+    className: '',
+    iconClosed: '',
+    iconOpened: '',
+    role:' Root, Admin, User, All',
+    tabOrder:7,
+    subNav: []
+
+  }      
+
 ];

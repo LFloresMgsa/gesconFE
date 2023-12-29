@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, Container, Paper, Avatar, Typography, TextField, Button, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@mui/styles';
-import fondo from '../assets/images/circulo.png'
+import fondo from '../imagenes/manual.jpg'
 import { LockOutlined as LockOutlinedIcon } from '@material-ui/icons'
 import { eventoService } from '../services/evento.service';
 import md5 from 'md5';
@@ -23,11 +23,10 @@ const useStyles = makeStyles(theme => ({
 		height: '70%',
 
 		marginTop: 10,
-		[theme.breakpoints.down(400 + 2 + 2)]: {
 			marginTop: 0,
 			width: '100%',
 			height: '100%'
-		}
+		
 	},
 	div: {
 		marginTop: 4,
@@ -41,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 	avatar: {
 		margin: 1,
-		backgroundColor: theme.palette.primary.main
+		backgroundColor: 'white'
 	},
 	form: {
 		width: '100%',
@@ -66,7 +65,10 @@ const Login = () => {
 	const BuscarToken = async () => {
 
 		try {
-			let _body = { Accion: "BUSCARREGISTRO", Sgm_cUsuario: username, Sgm_cContrasena: md5(password) }
+			let _body = { Sgm_cUsuario: username, Sgm_cContrasena: md5(password) }
+
+
+			
 
 			// obtenemos el token
 			await eventoService.obtenerToken(_body).then(
@@ -99,8 +101,12 @@ const Login = () => {
 
 		try {
 
+			
+
 			// genera un token
 			await BuscarToken();
+
+			
 
 			// valida si encontro el token
 
@@ -110,6 +116,10 @@ const Login = () => {
 
 			let _body = { Accion: "BUSCARREGISTRO", Sgm_cUsuario: username, Sgm_cContrasena: md5(password) }
 			let _result;
+
+			
+			
+
 
 			// si encontro el token ingresa el login
 			await eventoService.obtenerUsuario(_body).then(
@@ -123,6 +133,9 @@ const Login = () => {
 				}
 			);
 
+			
+
+
 			if (_result[0].Sgm_cUsuario == username) {
 
 				cookies.set('Sgm_cUsuario', _result[0].Sgm_cUsuario, { path: "/" });
@@ -132,6 +145,7 @@ const Login = () => {
 				cookies.set('Sgm_cPerfil', _result[0].Sgm_cPerfil, { path: "/" });
 
 				cookies.set('IsLoged', true , { path: "/" });
+
 
 				setError('');
 
@@ -166,7 +180,7 @@ const Login = () => {
 						<Grid item xs={12} lg={12}>
 
 
-							<Typography component='h1' variant='h5'>Galpón Legado</Typography>
+							<Typography component='h1' variant='h5'>Ingreso de usuario</Typography>
 
 						</Grid>
 						<Grid item xs={12} lg={12}>
