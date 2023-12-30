@@ -3,6 +3,9 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import * as RiIcons from 'react-icons/ri';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 export const SidebarData = [
   {
@@ -70,24 +73,24 @@ export const SidebarData = [
   {
     title: 'Login',
     path: '/login',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <LoginIcon/>,
     cName: '',
     className: '',
     iconClosed: '',
     iconOpened: '',
-    role:' Root, Admin, User, All',
+    role:' User, All',
     tabOrder:6,
     subNav: []
   }     , 
   {
     title: 'Logout',
     path: '/logout',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <LogoutIcon />,
     cName: '',
     className: '',
     iconClosed: '',
     iconOpened: '',
-    role:' Root, Admin, User, All',
+    role:' Root, Admin',
     tabOrder:7,
     subNav: []
 

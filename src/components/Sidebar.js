@@ -86,18 +86,18 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* <img className='Imageninicio' src={manualImage} alt='' /> */}
+       <img className='Imageninicio' src={manualImage} alt='' /> 
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          {/* <div className='Manual'><h6>Manual de Usuarios - PDF</h6></div> */}
+           <div className='Manual'><h6>Manual de Usuarios - PDF</h6></div> 
         </Nav>
         <SidebarNav sidebar={sidebar.toString()}> {/* Modificación aquí */}
           <SidebarWrap>
             <NavIcon to='#'>
-              {/* <img className='Imagen' src={mgsaImage} alt='' /> */}
+               <img className='Imagen' src={mgsaImage} alt='' /> 
             </NavIcon>
 
             {sortMenuItems.map((item, index) => {
